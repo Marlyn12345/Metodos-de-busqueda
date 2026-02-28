@@ -1,0 +1,71 @@
+﻿
+ALGORITMOS DE BÚSQUEDA: LINEAL Y BINARIA
+
+
+1. BÚSQUEDA LINEAL 
+Revisa cada elemento del arreglo uno por uno 
+hasta encontrar el valor buscado o llegar al final.
+
+PSEUDOCÓDIGO (Lógica PSeInt):
+    Algoritmo BusquedaLineal
+        Escribir "Ingrese cantidad de elementos:"
+        Leer n
+        Dimension lista[n]
+        Escribir "Número a buscar:"
+        Leer objetivo
+        posicion <- -1
+        Para i <- 1 Hasta n Hacer
+            Si lista[i] == objetivo Entonces
+                posicion <- i
+            FinSi
+        FinPara
+        Si posicion != -1 Entonces
+            Escribir "Encontrado en posición: ", posicion
+        Sino
+            Escribir "No encontrado"
+        FinSi
+    FinAlgoritmo
+
+
+
+2. BÚSQUEDA BINARIA
+Divide el arreglo ordenado a la mitad en cada 
+paso, descartando la mitad donde el valor no puede estar.
+
+PSEUDOCÓDIGO (Lógica PSeInt):
+    Algoritmo BusquedaBinaria
+        Escribir "Ingrese cantidad de elementos (ordenados):"
+        Leer n
+        Dimension lista[n]
+        izq <- 1
+        der <- n
+        posicion <- -1
+        Mientras izq <= der Y posicion == -1 Hacer
+            med <- redon((izq + der) / 2)
+            Si lista[med] == objetivo Entonces
+                posicion <- med
+            Sino
+                Si lista[med] < objetivo Entonces
+                    izq <- med + 1
+                Sino
+                    der <- med - 1
+                FinSi
+            FinSi
+        FinMientras
+        Si posicion != -1 Entonces
+            Escribir "Encontrado en posición: ", posicion
+        Sino
+            Escribir "No encontrado"
+        FinSi
+    FinAlgoritmo
+
+
+
+
+ANÁLISIS 
+
+* El método más eficiente es la BÚSQUEDA BINARIA.
+Porque tiene una complejidad de O(log n). 
+Mientras que la lineal revisa cada dato (O(n)), la 
+binaria divide el problema a la mitad en cada paso.
+
